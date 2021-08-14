@@ -1,0 +1,37 @@
+{{!< layout}}
+<header class="aui-page-header">
+<div class="aui-page-header-inner">
+    <div class="aui-page-header-main">
+        <h1>{{ title }}</h1>
+    </div>
+</div>
+</header>
+
+<div class="aui-page-panel">
+    <div class="aui-page-panel-inner">
+        <form class="aui top-labels" action="/settings-save">
+            <input type="hidden" name="jwt" value="{{token}}" />
+            <div class="field-group">
+                <label for="backend-url">Backend URL<span class="aui-icon icon-required">(required)</span></label>
+                <input class="text long-field" type="url" id="backend-url" name="backend-url" placeholder="https://seatsurfing.your-domain.com" value="{{backendUrl}}" required="required" />
+                <div class="description">The URL of your Seatsurfing Backend instance.</div>
+            </div>
+            <div class="field-group">
+                <label for="backend-instance-id">Instance ID<span class="aui-icon icon-required">(required)</span></label>
+                <input class="text long-field" type="text" id="backend-instance-id" name="backend-instance-id" placeholder="" value="{{backendInstanceId}}" required="required" />
+                <div class="description">The Instance ID displayed under "Settings" in your Seatsurfing admin account.</div>
+            </div>
+            <div class="field-group">
+                <label for="backend-secret">Shared Secret<span class="aui-icon icon-required">(required)</span></label>
+                <input class="text long-field" type="text" id="backend-secret" name="backend-secret" placeholder="" value="{{backendSecret}}" required="required" />
+                <div class="description">A secret used for signing the messages from this Confluence App to your Seatsurfing instance.</div>
+            </div>
+            <div class="buttons-container">
+                <div class="buttons">
+                    <button class="aui-button aui-button-primary" id="save-button">Save</button>
+                    <a class="cancel aui-button-cancel" href="/settings-clear?jwt={{token}}">Clear</a>
+                </div>
+            </div>
+        </form> 
+    </div>
+</div>
