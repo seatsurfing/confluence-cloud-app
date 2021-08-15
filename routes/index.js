@@ -15,7 +15,6 @@ export default function routes(app, addon) {
       const backendUrl = ((config || {}).value || {}).backendUrl || "";
       const backendInstanceId = ((config || {}).value || {}).backendInstanceId || "";
       const backendSecret = ((config || {}).value || {}).backendSecret || "";
-      console.log(req.context.userAccountId);
       if ((backendUrl === "") || (backendInstanceId === "") || (backendSecret === "")) {
         res.render('install', {});
         return;
@@ -28,9 +27,10 @@ export default function routes(app, addon) {
         "exp": now.add(5, 'minutes').unix()
       };
       let token = jwt.encodeSymmetric(jwtPayload, backendSecret);
-      let targetUrl = backendUrl + "ui/confluence/" + backendInstanceId + "/" + token;
-      console.log(targetUrl);
-      res.redirect(targetUrl);
+      let targetUrl = backendUrl + "confluence/" + backendInstanceId + "/" + token;
+      res.render('macro', {
+        targetUrl: targetUrl
+      });
     });
   });
 

@@ -14,17 +14,17 @@
             <div class="field-group">
                 <label for="backend-url">Backend URL<span class="aui-icon icon-required">(required)</span></label>
                 <input class="text long-field" type="url" id="backend-url" name="backend-url" placeholder="https://seatsurfing.your-domain.com" value="{{backendUrl}}" required="required" />
-                <div class="description">The URL of your Seatsurfing Backend instance.</div>
+                <div class="description long-field">The URL of your Seatsurfing Backend instance.</div>
             </div>
             <div class="field-group">
                 <label for="backend-instance-id">Instance ID<span class="aui-icon icon-required">(required)</span></label>
                 <input class="text long-field" type="text" id="backend-instance-id" name="backend-instance-id" placeholder="" value="{{backendInstanceId}}" required="required" />
-                <div class="description">The Instance ID displayed under "Settings" in your Seatsurfing admin account.</div>
+                <div class="description long-field">The Instance ID displayed in the Settings of your Seatsurfing admin account.</div>
             </div>
             <div class="field-group">
                 <label for="backend-secret">Shared Secret<span class="aui-icon icon-required">(required)</span></label>
                 <input class="text long-field" type="text" id="backend-secret" name="backend-secret" placeholder="" value="{{backendSecret}}" required="required" />
-                <div class="description">A secret used for signing the messages from this Confluence App to your Seatsurfing instance.</div>
+                <div class="description long-field">A shared secret used for signing messages from this Confluence App to your Seatsurfing instance. Set the same secret both here and in the Setting of your Seatsurfing admin account.</div>
             </div>
             <div class="buttons-container">
                 <div class="buttons">
