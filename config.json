@@ -12,7 +12,7 @@
     "production": {
         "port": "3000",
         "errorTemplate": false,
-        "localBaseUrl": "https://confluence-app.seatsurfing.de",
+        "localBaseUrl": "https://confluence-app.seatsurfing.app",
         "store": {
             "adapter": "sequelize",
             "dialect": "sqlite3",

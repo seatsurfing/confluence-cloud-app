@@ -4,7 +4,7 @@
     "description": "Free seating and co-working for your employees. Book a seat using this Confluence plug in. Any time, any place.",
     "vendor": {
         "name": "Seatsurfing",
-        "url": "https://seatsurfing.de/"
+        "url": "https://seatsurfing.app/"
     },
     "baseUrl": "{{localBaseUrl}}",
     "links": {
@@ -33,7 +33,7 @@
                 },
                 "url": "/macro",
                 "description": {
-                    "value": "Displays the Seatsurfing.de Booking UI."
+                    "value": "Displays the Seatsurfing.app Booking UI."
                 },
                 "outputType": "block",
                 "bodyType": "none",
