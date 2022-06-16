@@ -10,14 +10,13 @@
         }
     },
     "production": {
-        "port": "3000",
+        "port": "$PORT",
         "errorTemplate": false,
         "localBaseUrl": "https://confluence-app.seatsurfing.app",
         "store": {
             "adapter": "sequelize",
-            "dialect": "sqlite3",
-            "logging": false,
-            "type": "memory"
+            "dialect": "postgres",
+            "url": "$DATABASE_URL"
         },
         "whitelist": [
             "*.jira-dev.com",
