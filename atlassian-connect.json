@@ -8,14 +8,15 @@
     },
     "baseUrl": "{{localBaseUrl}}",
     "links": {
-        "self": "{{.BaseUrl}}/atlassian-connect.json",
-        "homepage": "{{.BaseUrl}}/atlassian-connect.json"
+        "self": "https://confluence-app.seatsurfing.app/atlassian-connect.json",
+        "homepage": "https://confluence-app.seatsurfing.app/atlassian-connect.json"
     },
     "authentication": {
         "type": "jwt"
     },
     "lifecycle": {
-        "installed": "/installed"
+        "installed": "/installed",
+        "uninstalled": "/uninstalled"
     },
     "scopes": [
         "READ"
