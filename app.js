@@ -14,6 +14,9 @@ import morgan from 'morgan';
 // atlassian-connect-express also provides a middleware
 import ace from 'atlassian-connect-express';
 
+// Use Handlebars as view engine:
+// https://npmjs.org/package/express-hbs
+// http://handlebarsjs.com
 import hbs from 'express-hbs';
 
 // We also need a few stock Node modules
@@ -38,9 +41,13 @@ app.set('port', port);
 const devEnv = app.get('env') === 'development';
 app.use(morgan(devEnv ? 'dev' : 'combined'));
 
+// We don't want to log JWT tokens, for security reasons
+morgan.token('url', redactJwtTokens);
+
 // Configure Handlebars
 const viewsDir = path.join(__dirname, 'views');
-app.engine('hbs', hbs.express3({partialsDir: viewsDir}));
+const handlebarsEngine = hbs.express4({partialsDir: viewsDir});
+app.engine('hbs', handlebarsEngine);
 app.set('view engine', 'hbs');
 app.set('views', viewsDir);
 
@@ -87,3 +94,15 @@ http.createServer(app).listen(port, () => {
   // Enables auto registration/de-registration of app into a host in dev mode
   if (devEnv) addon.register();
 });
+
+function redactJwtTokens(req) {
+  const url = req.originalUrl || req.url || '';
+  const params = new URLSearchParams(url);
+  let redacted = url;
+  params.forEach((value, key) => {
+    if (key.toLowerCase() === 'jwt') {
+      redacted = redacted.replace(value, 'redacted');
+    }
+  });
+  return redacted;
+}

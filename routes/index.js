@@ -11,7 +11,23 @@ export default function routes(app, addon) {
   app.get('/macro', addon.authenticate(), (req, res) => {
     let httpClient = addon.httpClient(req);
     httpClient.get({ uri: `/rest/atlassian-connect/1/addons/${addonKey}/properties/json` }, (err, ires, body) => {
-      const config = JSON.parse(body);
+      if (err) {
+        console.log('Error: ' + err);
+        res.status(500).send();
+        return;
+      }
+      if (!body) {
+        res.status(500).send();
+        return;
+      }
+      let config;
+      try {
+        config = JSON.parse(body);
+      } catch (e) {
+        console.log('Could not parse JSON: ' + e);
+        res.status(500).send();
+        return;
+      }
       const backendUrl = ((config || {}).value || {}).backendUrl || "";
       const backendInstanceId = ((config || {}).value || {}).backendInstanceId || "";
       const backendSecret = ((config || {}).value || {}).backendSecret || "";
@@ -37,7 +53,23 @@ export default function routes(app, addon) {
   app.get('/settings', addon.authenticate(), addon.authorizeConfluence({ application: ["administer"] }), (req, res) => {
     let httpClient = addon.httpClient(req);
     httpClient.get({ uri: `/rest/atlassian-connect/1/addons/${addonKey}/properties/json` }, (err, ires, body) => {
-      const config = JSON.parse(body);
+      if (err) {
+        console.log('Error: ' + err);
+        res.status(500).send();
+        return;
+      }
+      if (!body) {
+        res.status(500).send();
+        return;
+      }
+      let config;
+      try {
+        config = JSON.parse(body);
+      } catch (e) {
+        console.log('Could not parse JSON: ' + e);
+        res.status(500).send();
+        return;
+      }
       res.render('settings', {
         title: "Seatsurfing Setting",
         backendUrl: ((config || {}).value || {}).backendUrl || "",
