@@ -19,7 +19,7 @@
     "lint": "eslint app.js routes"
   },
   "dependencies": {
-    "atlassian-connect-express": "^7.6.0",
+    "atlassian-connect-express": "^7.7.0",
     "body-parser": "^1.20.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
@@ -31,17 +31,17 @@
     "morgan": "^1.10.0",
     "nocache": "^3.0.4",
     "pg": "^8.7.3",
-    "sequelize": "^6.20.1"
+    "sequelize": "^6.21.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.5",
+    "@babel/core": "^7.18.6",
     "babel-plugin-styled-components": "^2.0.7",
     "concurrently": "^7.2.2",
-    "eslint": "^8.17.0",
-    "eslint-plugin-react": "^7.30.0",
+    "eslint": "^8.18.0",
+    "eslint-plugin-react": "^7.30.1",
     "longjohn": "^0.2.12",
-    "ngrok": "^4.3.1",
-    "nodemon": "^2.0.16",
+    "ngrok": "^3.3.0",
+    "nodemon": "^2.0.18",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-externals": "^0.5.2",
     "sqlite3": "^5.0.8"
