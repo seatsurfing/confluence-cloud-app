@@ -28,6 +28,13 @@ import nocache from 'nocache';
 
 // Routes live here; this is the C in MVC
 import routes from './routes';
+import PgClient from 'pg/lib/client';
+
+PgClient.prototype._handleErrorWhileConnecting = function(err) {
+  console.log("Sequelize connection error %s, exiting...", err.code);
+  process.exit(1);
+};
+
 
 // Bootstrap Express and atlassian-connect-express
 const app = express();
