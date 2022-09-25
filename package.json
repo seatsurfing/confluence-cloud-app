@@ -30,20 +30,20 @@
     "helmet": "^5.1.0",
     "morgan": "^1.10.0",
     "nocache": "^3.0.4",
-    "pg": "^8.7.3",
-    "sequelize": "^6.21.2"
+    "pg": "^8.8.0",
+    "sequelize": "^6.23.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.6",
+    "@babel/core": "^7.19.1",
     "babel-plugin-styled-components": "^2.0.7",
-    "concurrently": "^7.2.2",
-    "eslint": "^8.18.0",
-    "eslint-plugin-react": "^7.30.1",
+    "concurrently": "^7.4.0",
+    "eslint": "^8.24.0",
+    "eslint-plugin-react": "^7.31.8",
     "longjohn": "^0.2.12",
     "ngrok": "^3.3.0",
-    "nodemon": "^2.0.18",
+    "nodemon": "^2.0.20",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-externals": "^0.5.2",
-    "sqlite3": "^5.0.8"
+    "sqlite3": "^5.1.1"
   }
 }
