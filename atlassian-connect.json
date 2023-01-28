@@ -39,7 +39,6 @@
                 "outputType": "block",
                 "bodyType": "none",
                 "width": "100%",
-                "height": "500px",
                 "icon": {
                     "url": "/images/icon.png",
                     "height": 16,
