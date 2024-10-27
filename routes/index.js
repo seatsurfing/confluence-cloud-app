@@ -1,7 +1,8 @@
 import * as jwt from 'atlassian-jwt';
 import moment from 'moment';
 
-const addonKey = require("../atlassian-connect").key;
+import atlassianConnectJson from "../atlassian-connect.json" with { type: "json" };
+const addonKey = atlassianConnectJson.key;
 
 export default function routes(app, addon) {
   app.get('/', (req, res) => {

@@ -25,10 +25,12 @@ import path from 'path';
 import os from 'os';
 import helmet from 'helmet';
 import nocache from 'nocache';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 // Routes live here; this is the C in MVC
-import routes from './routes';
-import PgClient from 'pg/lib/client';
+import routes from './routes/index.js';
+import PgClient from 'pg/lib/client.js';
 
 PgClient.prototype._handleErrorWhileConnecting = function(err) {
   console.log("Sequelize connection error %s, exiting...", err.code);
@@ -52,6 +54,8 @@ app.use(morgan(devEnv ? 'dev' : 'combined'));
 morgan.token('url', redactJwtTokens);
 
 // Configure Handlebars
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const viewsDir = path.join(__dirname, 'views');
 const handlebarsEngine = hbs.express4({partialsDir: viewsDir});
 app.engine('hbs', handlebarsEngine);
