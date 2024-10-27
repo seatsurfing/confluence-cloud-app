@@ -1,17 +1,18 @@
 {
   "name": "seatsurfing-cloud-app",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "externals": {
     "react": "React",
     "react-dom": "ReactDOM"
   },
+  "type": "module",
   "scripts": {
     "build-jsx-browser": "parcel build --log-level 1 --global __root_component --out-dir views views/*.jsx",
     "build-jsx-node": "parcel build --log-level 1 --no-minify --target node --out-dir views/node views/*.jsx",
     "build": "concurrently -i 'npm:build-*'",
-    "start": "node -r esm app.js",
-    "watch-server": "nodemon -e js -r esm app.js",
+    "start": "node --es-module-specifier-resolution=node app.js",
+    "watch-server": "nodemon --es-module-specifier-resolution=node -e js app.js",
     "watch-jsx-browser": "parcel watch --log-level 1 --no-hmr --global __root_component --out-dir views views/*.jsx",
     "watch-jsx-node": "parcel watch --log-level 1 --target node --out-dir views/node views/*.jsx",
     "watch-jsx": "concurrently 'npm:watch-jsx-browser' 'npm:watch-jsx-node'",
@@ -19,31 +20,29 @@
     "lint": "eslint app.js routes"
   },
   "dependencies": {
-    "atlassian-connect-express": "^7.11.0",
-    "body-parser": "^1.20.1",
+    "atlassian-connect-express": "^11.4.1",
+    "body-parser": "^1.20.3",
     "compression": "^1.7.4",
-    "cookie-parser": "^1.4.6",
+    "cookie-parser": "^1.4.7",
     "errorhandler": "^1.5.1",
-    "esm": "^3.2.25",
-    "express": "^4.18.2",
-    "express-hbs": "*",
-    "helmet": "^6.0.1",
+    "express": "^4.21.1",
+    "express-hbs": "^2.5.0",
+    "helmet": "^4.6.0",
     "morgan": "^1.10.0",
-    "nocache": "^3.0.4",
-    "pg": "^8.9.0",
-    "sequelize": "^6.28.0"
+    "nocache": "^2.1.0",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.12",
-    "babel-plugin-styled-components": "^2.0.7",
-    "concurrently": "^7.6.0",
-    "eslint": "^8.32.0",
-    "eslint-plugin-react": "^7.32.1",
+    "@babel/core": "^7.26.0",
+    "babel-plugin-styled-components": "^1.13.3",
+    "concurrently": "^5.3.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.37.2",
     "longjohn": "^0.2.12",
-    "ngrok": "^3.3.0",
-    "nodemon": "^2.0.20",
-    "parcel-bundler": "^1.12.4",
+    "nodemon": "^2.0.22",
+    "parcel-bundler": "^1.12.5",
     "parcel-plugin-externals": "^0.5.2",
-    "sqlite3": "^5.1.4"
+    "sqlite3": "^5.1.7"
   }
 }
